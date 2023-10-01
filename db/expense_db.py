@@ -4,7 +4,6 @@ from models.expense import Expense, Participant
 
 logger = logging.getLogger(__name__)
 
-# Initialize MongoDB client and get the expenses collection
 client = MongoClient('mongodb://localhost:27017/')
 db = client['expense_sharing_app']
 expenses_collection = db['expenses']

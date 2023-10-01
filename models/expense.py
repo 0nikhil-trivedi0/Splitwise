@@ -11,7 +11,6 @@ class Participant:
             "owedPercentage": self.owed_percentage
         }
 
-
 class Expense:
     def __init__(self, expense_id, payer_id, amount, split_type, participants, created_at, expense_name=None, notes=None, images=None, needs_adjustment=False):
         self.expense_id = expense_id
@@ -39,10 +38,8 @@ class Expense:
             "needsAdjustment": self.needs_adjustment
         }
 
-
 def add_expense(expenses_list, expense):
     expenses_list.append(expense)
-
 
 def split_expense(expense, users_list):
     num_participants = len(expense.participants)
@@ -53,7 +50,6 @@ def split_expense(expense, users_list):
             participant.owed_amount = owed_amount
     
     elif expense.split_type == "EXACT":
-        # Check if owed_amount is set for each participant
         if not all(hasattr(participant, 'owed_amount') and participant.owed_amount is not None for participant in expense.participants):
             return "For EXACT split type, owed_amount must be set for each participant."
     
@@ -61,7 +57,6 @@ def split_expense(expense, users_list):
         for participant in expense.participants:
             participant.owed_amount = (expense.amount * participant.owed_percentage) / 100
     
-    # Check and adjust if any user is inactive
     for participant in expense.participants:
         is_active = any(user.user_id == participant.user_id and user.is_active for user in users_list)
         if not is_active:

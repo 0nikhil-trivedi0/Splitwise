@@ -18,10 +18,8 @@ class User:
     def mark_inactive(self):
         self.is_active = False
 
-
 def add_user(users_list, user):
     users_list.append(user)
-
 
 def mark_user_inactive(users_list, user_id):
     for user in users_list:

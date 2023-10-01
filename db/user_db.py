@@ -4,7 +4,6 @@ from models.user import User
 
 logger = logging.getLogger(__name__)
 
-# Initialize MongoDB client and get the users collection
 client = MongoClient('mongodb://localhost:27017/')
 db = client['expense_sharing_app']
 users_collection = db['users']
