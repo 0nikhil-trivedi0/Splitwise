@@ -1,4 +1,4 @@
-# Expense Sharing Application
+# SplitWise(Expense Sharing Application)
 
 ## Overview
 This project is an implementation of an Expense Sharing Application, a utility tool designed to help groups of individuals, such as friends or colleagues, manage and split their shared expenses efficiently. The application is developed using Python, leveraging the Flask framework, and utilizes MongoDB as its database.
