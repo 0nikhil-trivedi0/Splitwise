@@ -1,0 +1,88 @@
+{
+    "collections": {
+      "users": {
+        "schema": {
+          "_id": "ObjectId",
+          "userId": "String",
+          "name": "String",
+          "email": "String",
+          "mobileNumber": "String",
+          "isActive": "Boolean"
+        },
+        "indexes": {
+          "userId": "Unique Index",
+          "email": "Unique Index",
+          "mobileNumber": "Unique Index"
+        },
+        "description": "This collection stores details of each user."
+      },
+      "expenses": {
+        "schema": {
+          "_id": "ObjectId",
+          "expenseId": "String",
+          "payerId": "String",
+          "amount": "Number",
+          "splitType": "String",
+          "participants": [
+            {
+              "userId": "String",
+              "owedAmount": "Number",
+              "owedPercentage": "Number"
+            }
+          ],
+          "createdAt": "Date",
+          "expenseName": "String",
+          "notes": "String",
+          "images": ["String"],
+          "needsAdjustment": "Boolean"
+        },
+        "indexes": {
+          "expenseId": "Unique Index",
+          "payerId": "Regular Index",
+          "createdAt": "Regular Index"
+        },
+        "description": "This collection stores details of each expense."
+      },
+      "balances": {
+        "schema": {
+          "_id": "ObjectId",
+          "user1Id": "String",
+          "user2Id": "String",
+          "balance": "Number",
+          "lastUpdated": "Date"
+        },
+        "description": "This collection stores the balance between any two users."
+      },
+      "activities": {
+        "schema": {
+          "_id": "ObjectId",
+          "userId": "String",
+          "type": "String",
+          "details": "String",
+          "timestamp": "Date"
+        },
+        "description": "This collection stores activities or notifications for any user."
+      },
+      "settlements": {
+        "schema": {
+          "_id": "ObjectId",
+          "payerId": "String",
+          "payeeId": "String",
+          "amount": "Number",
+          "settledAt": "Date"
+        },
+        "description": "This collection stores details of settlements between any number of users."
+      },
+      "adjustments": {
+        "schema": {
+          "_id": "ObjectId",
+          "expenseId": "String",
+          "adjusterId": "String",
+          "adjustmentDetails": "String",
+          "adjustedAt": "Date"
+        },
+        "description": "This collection stores details of adjustments made to any expense."
+      }
+    }
+  }
+  
